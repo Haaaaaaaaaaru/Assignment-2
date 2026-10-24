@@ -1,0 +1,17 @@
+dish,image,step,minutes
+ボロネーゼ,./media/boroneze.jpeg,香味野菜を炒める,5
+ボロネーゼ,./media/boroneze.jpeg,ひき肉を炒める,5
+ボロネーゼ,./media/boroneze.jpeg,ソースを煮込む,20
+ボロネーゼ,./media/boroneze.jpeg,パスタをゆでる,9
+いちごタルト,./media/ichigotaruto.jpeg,タルト生地を冷蔵庫で休ませる,30
+いちごタルト,./media/ichigotaruto.jpeg,タルト生地を焼く,20
+いちごタルト,./media/ichigotaruto.jpeg,粗熱をとる,15
+麻婆豆腐,./media/mabo.jpeg,豆腐を下ゆでする,3
+麻婆豆腐,./media/mabo.jpeg,ひき肉と香味野菜を炒める,4
+麻婆豆腐,./media/mabo.jpeg,豆腐を入れて煮込む,3
+そぼろ肉じゃが,./media/nikujaga.jpeg,じゃがいもとひき肉を炒める,3
+そぼろ肉じゃが,./media/nikujaga.jpeg,落としぶたをして煮込む,15
+そぼろ肉じゃが,./media/nikujaga.jpeg,火を止めて味をなじませる,10
+オムライス,./media/omrice.jpeg,ケチャップライスを炒める,5
+オムライス,./media/omrice.jpeg,デミグラスソースを温める,3
+オムライス,./media/omrice.jpeg,とろとろ卵を焼く,2

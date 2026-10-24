@@ -1,0 +1,302 @@
+/* ===== 全体設定 ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #fbf6ee;          /* 生成り色の背景 */
+    color: #3b2a20;               /* こげ茶の文字 */
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    line-height: 1.8;
+}
+
+/* ===== ヘッダー ===== */
+.site-header {
+    text-align: center;
+    padding: 40px 16px 20px;
+    border-bottom: 1px solid #e3d5c3;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: 0.08em;
+}
+
+.site-header p {
+    margin: 8px 0 0;
+    color: #8a7563;
+}
+
+/* ===== メイン ===== */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 16px;
+}
+
+h2 {
+    font-size: 22px;
+    color: #c0582b;               /* テラコッタ色 */
+    letter-spacing: 0.1em;
+    border-left: 5px solid #c0582b;
+    padding-left: 12px;
+    margin: 30px 0 20px;
+}
+
+/* ===== 料理のカード ===== */
+#dish-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+}
+
+.dish-card {
+    padding: 0;
+    font-family: inherit;
+    color: inherit;
+    text-align: left;
+    background: #ffffff;
+    border: 2px solid #e3d5c3;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(59, 42, 32, 0.08);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.dish-card:hover {
+    transform: translateY(-4px);
+}
+
+/* 選んでいる料理 */
+.dish-card.selected {
+    border-color: #c0582b;
+}
+
+.dish-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.dish-card h3 {
+    margin: 10px 14px 0;
+    font-size: 17px;
+}
+
+.dish-card p {
+    margin: 2px 14px 12px;
+    font-size: 13px;
+    color: #8a7563;
+}
+
+/* ===== タイマー ===== */
+.timer-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr;   /* 左：タイマー 右：工程の一覧 */
+    gap: 20px;
+}
+
+.timer-main,
+.steps {
+    background: #ffffff;
+    border: 1px solid #e3d5c3;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(59, 42, 32, 0.08);
+}
+
+.timer-main {
+    text-align: center;
+}
+
+#dish-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#dish-name {
+    margin: 8px 0 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#step-count {
+    margin: 12px 0 0;
+    font-size: 13px;
+    color: #8a7563;
+    letter-spacing: 0.1em;
+}
+
+#step-name {
+    margin: 0;
+    font-size: 18px;
+    color: #c0582b;
+}
+
+/* 残り時間の大きな数字 */
+#time-display {
+    margin: 8px 0;
+    font-size: 72px;
+    font-weight: bold;
+    line-height: 1.2;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-variant-numeric: tabular-nums;   /* 数字の幅をそろえて、表示がガタつかないようにする */
+}
+
+/* 進み具合のバー */
+.progress {
+    height: 8px;
+    background: #f1e7da;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #c0582b;
+    transition: width 0.2s linear;
+}
+
+/* お知らせメッセージ */
+#message {
+    min-height: 1.8em;
+    margin: 14px 0;
+    font-weight: bold;
+}
+
+#message.alert {
+    color: #c0582b;
+    animation: blink 1s ease-in-out infinite;
+}
+
+#message.complete {
+    color: #3f7d3a;
+}
+
+@keyframes blink {
+    50% { opacity: 0.4; }
+}
+
+/* ボタン */
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 15px;
+    color: #3b2a20;
+    background: #ffffff;
+    border: 1px solid #c9b8a4;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#start-button {
+    color: #ffffff;
+    background: #c0582b;
+    border-color: #c0582b;
+}
+
+.buttons button:hover {
+    opacity: 0.8;
+}
+
+.buttons button:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+/* 時間になったら「次の工程へ」を目立たせる */
+#next-button.highlight {
+    color: #ffffff;
+    background: #3f7d3a;
+    border-color: #3f7d3a;
+}
+
+.demo {
+    display: block;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #8a7563;
+    cursor: pointer;
+}
+
+/* ===== 工程の一覧 ===== */
+.steps h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+#step-list {
+    margin: 0;
+    padding-left: 1.4em;
+}
+
+#step-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f1e7da;
+}
+
+#step-list li span {
+    display: inline-block;
+}
+
+.step-time {
+    float: right;
+    color: #8a7563;
+    font-size: 14px;
+}
+
+/* 今の工程 */
+#step-list li.current {
+    color: #c0582b;
+    font-weight: bold;
+}
+
+/* 終わった工程 */
+#step-list li.done {
+    color: #b3a291;
+    text-decoration: line-through;
+}
+
+/* ===== フッター ===== */
+footer {
+    padding: 30px;
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px solid #e3d5c3;
+    margin-top: 40px;
+    color: #8a7563;
+}
+
+/* ===== スマートフォン対応（横幅600px以下） ===== */
+@media screen and (max-width: 600px) {
+    .site-header h1 {
+        font-size: 26px;
+    }
+
+    #dish-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* タイマーと工程の一覧を縦に並べる */
+    .timer-layout {
+        grid-template-columns: 1fr;
+    }
+
+    #time-display {
+        font-size: 56px;
+    }
+}
