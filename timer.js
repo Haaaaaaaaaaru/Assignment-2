@@ -68,7 +68,7 @@ function showDishes() {
         });
 
         const card = document.createElement("button");
-        card.className = "dish-card";
+        card.className = "dish-card fade-in";
 
         const img = document.createElement("img");
         img.src = recipe.image;
@@ -94,6 +94,9 @@ function showDishes() {
         });
 
         dishList.appendChild(card);
+
+        // 画面に入ったらふわっと表示されるようにする（effects.js）
+        watchFadeIn(card);
     });
 }
 

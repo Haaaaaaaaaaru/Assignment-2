@@ -7,23 +7,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="site-header">
-        <h1>Haru's Kitchen Timer</h1>
-        <p>料理を選んで、工程ごとにタイマーをスタート</p>
+    <!-- トップ画像（スクロールでゆっくり動く） -->
+    <header class="hero">
+        <div class="hero-image">
+            <img src="./media/boroneze.jpeg" alt="">
+        </div>
+        <div class="hero-text">
+            <h1>Haru's Kitchen Timer</h1>
+            <p>料理を選んで、工程ごとにタイマーをスタート</p>
+        </div>
     </header>
 
     <main>
         <!-- 料理を選ぶエリア -->
         <section id="menu">
-            <h2>1. 料理を選ぶ</h2>
+            <h2 class="fade-in">1. 料理を選ぶ</h2>
             <div id="dish-list"></div>
         </section>
 
         <!-- タイマーのエリア（料理を選ぶと表示される） -->
         <section id="timer" hidden>
-            <h2>2. 工程ごとにタイマー</h2>
+            <h2 class="fade-in">2. 工程ごとにタイマー</h2>
             <div class="timer-layout">
-                <div class="timer-main">
+                <div class="timer-main fade-in">
                     <img id="dish-image" src="" alt="">
                     <p id="dish-name"></p>
                     <p id="step-count"></p>
@@ -45,7 +51,7 @@
                 </div>
 
                 <!-- 工程の一覧 -->
-                <div class="steps">
+                <div class="steps fade-in">
                     <h3>工程</h3>
                     <ol id="step-list"></ol>
                 </div>
@@ -57,6 +63,7 @@
         <span>© 2026 Haru Okabe</span>
     </footer>
 
+    <script src="effects.js"></script>
     <script src="timer.js"></script>
 </body>
 </html>
